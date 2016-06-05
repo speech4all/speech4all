@@ -2,7 +2,7 @@
 const express = require('express');
 const http = require('http');
 const app = express();
-const server = http.Server(app).listen(process.env.PORT || 8080);
+const server = http.Server(app).listen(8080);
 const io = require('socket.io', {})(server);
 const bodyParser = require('body-parser');
 
