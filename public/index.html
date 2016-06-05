@@ -29,7 +29,7 @@
     </section>
     <script src="js/socket.io.js"></script>
     <script>
-    var socket = io('https://' + window.location.hostname + ':4433');
+    var socket = io('https://' + window.location.hostname + ':4000');
     socket.on('original text', function(data) {
         var node = document.createElement("LI"); // Create a <li> node
         var d = new Date();
