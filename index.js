@@ -2,8 +2,10 @@
 const express = require('express');
 const http = require('http');
 const app = express();
-const io = require('socket.io')(http.createServer(app));
+const server = http.Server(app).listen(process.env.PORT || 8080);
+const io = require('socket.io', {})(server);
 const bodyParser = require('body-parser');
+
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,8 +32,6 @@ app.post('/api/message', function(req, res) {
 
     res.send('OK');
 });
-
-io.set("transports", ["xhr-polling"]);
 
 io.on('connection', function(socket) {
     console.log('a user connected');

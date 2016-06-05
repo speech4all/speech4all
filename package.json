@@ -1,22 +1,19 @@
 {
-  "name": "speech4all",
-  "version": "1.0.0",
-  "description": "Speech4All web server",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "MIT",
-  "engines": {
-    "node": "5.8.0"
-  },
-  "dependencies": {
-    "body-parser": "^1.15.1",
-    "express": "^4.13.4",
-    "socket.io": "^1.4.6"
-  },
-  "scripts": {
-    "start": "node index.js"
-  }
+    "name": "speech4all",
+    "version": "1.0.0",
+    "description": "Speech4All web server",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "author": "",
+    "license": "MIT",
+    "engines": {
+        "node": "5.8.0"
+    },
+    "dependencies": {
+        "body-parser": "^1.15.1",
+        "express": "^4.13.4",
+        "socket.io": "^1.4.6"
+    }
 }
