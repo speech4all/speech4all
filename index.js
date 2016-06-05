@@ -1,6 +1,6 @@
 // SERVER
 const express = require('express');
-const http = require('https');
+const http = require('http');
 const app = express();
 const server = http.Server(app).listen(4000);
 const io = require('socket.io', {})(server);
