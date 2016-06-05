@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Speech4All</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+
+<body class="container">
+    <header>
+        <h1>Space Hack Demo</h1>
+        <hr>
+    </header>
+    <section>
+        <div class="row">
+            <div class="col-md-5 col-xs-12 well">
+                <h3>Original:</h3>
+                <hr>
+                <ul id="speaker-messages-original"></ul>
+            </div>
+            <div class="col-md-5 col-md-offset-1 col-xs-12 well">
+                <h3>Translated:</h3>
+                <hr>
+                <ul id="speaker-messages-translated"></ul>
+            </div>
+        </div>
+    </section>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+    var socket = io();
+    socket.on('original text', function(data) {
+        var node = document.createElement("LI"); // Create a <li> node
+        var d = new Date();
+        var textnode = document.createTextNode('[' + d.toISOString() + ']: ' + data); // Create a text node
+        node.appendChild(textnode); // Append the text to <li>
+        document.getElementById("speaker-messages-original").appendChild(node); // Append <li> to <ul> with id="myList"
+    });
+    socket.on('translated text', function(data) {
+        var node = document.createElement("LI"); // Create a <li> node
+        var d = new Date();
+        var textnode = document.createTextNode('[' + d.toISOString() + ']: ' + data); // Create a text node
+        node.appendChild(textnode); // Append the text to <li>
+        document.getElementById("speaker-messages-translated").appendChild(node); // Append <li> to <ul> with id="myList"
+    });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+
+</html>
