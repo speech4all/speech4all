@@ -1,6 +1,6 @@
 // SERVER
 const express = require('express');
-const http =  require('http');
+const http = require('http');
 const app = express();
 const io = require('socket.io')(http.createServer(app));
 const bodyParser = require('body-parser');
@@ -30,10 +30,8 @@ app.post('/api/message', function(req, res) {
     res.send('OK');
 });
 
-io.configure(function () {  
-  io.set("transports", ["xhr-polling"]); 
-  io.set("polling duration", 10); 
-});
+io.set("transports", ["xhr-polling"]);
+io.set("polling duration", 10);
 
 io.on('connection', function(socket) {
     console.log('a user connected');
@@ -43,5 +41,5 @@ io.on('connection', function(socket) {
 });
 
 app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+    console.log('Node app is running on port', app.get('port'));
 });
