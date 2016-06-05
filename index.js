@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 app.set('port', (process.env.PORT || 3000));
 
@@ -31,7 +32,6 @@ app.post('/api/message', function(req, res) {
 });
 
 io.set("transports", ["xhr-polling"]);
-io.set("polling duration", 10);
 
 io.on('connection', function(socket) {
     console.log('a user connected');
